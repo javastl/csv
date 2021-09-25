@@ -25,7 +25,6 @@
 		<jkube.enricher.jkube-service.type>LoadBalancer</jkube.enricher.jkube-service.type>
 		<jkube.enricher.jkube-service.expose>true</jkube.enricher.jkube-service.expose>
 		<jkube.generator.name>${docker.user}/csv:1.0</jkube.generator.name>
-
 	<!--
 		<jkube.generator.name>${docker.user}/random-generator:${project.version}</jkube.generator.name>
 	ß-->
