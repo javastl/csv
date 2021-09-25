@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.net.UnknownHostException;
 
 @RestController
-public class CsvEnpoint {
-    @GetMapping(value = "/hello", produces = "application/json")
+public class CsvEndpoint {
+    @GetMapping(value = "/helloCSV", produces = "application/json")
     public DummyResponse hello(){
         String podName = "";
         int cores = 0;
@@ -17,6 +17,6 @@ public class CsvEnpoint {
         }catch (UnknownHostException e) {
             e.printStackTrace();
         }
-        return new DummyResponse("Cores is: " + cores + " Running pod is: " + podName);
+        return new DummyResponse("Hello with Cores is: " + cores + " Running pod is: " + podName);
     }
 }

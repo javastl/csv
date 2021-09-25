@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.javastl</groupId>
 	<artifactId>Csv</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>Csv</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -24,7 +24,11 @@
 		<jkube.replicas>2</jkube.replicas>
 		<jkube.enricher.jkube-service.type>LoadBalancer</jkube.enricher.jkube-service.type>
 		<jkube.enricher.jkube-service.expose>true</jkube.enricher.jkube-service.expose>
+		<jkube.generator.name>${docker.user}/csv:1.0</jkube.generator.name>
+
+	<!--
 		<jkube.generator.name>${docker.user}/random-generator:${project.version}</jkube.generator.name>
+	ß-->
 	</properties>
 	<dependencies>
 		<dependency>
