@@ -14,6 +14,7 @@
 	<name>Csv</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
+		<jkube.createExternalUrls>true</jkube.createExternalUrls>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>11</java.version>
@@ -21,13 +22,15 @@
 		<jkube.version>1.4.0</jkube.version>
 		<jkube.namespace>csv</jkube.namespace>
 		<jkube.docker.registry>docker.io</jkube.docker.registry>
-		<jkube.replicas>2</jkube.replicas>
+		<jkube.replicas>3</jkube.replicas>
 		<jkube.enricher.jkube-service.type>LoadBalancer</jkube.enricher.jkube-service.type>
 		<jkube.enricher.jkube-service.expose>true</jkube.enricher.jkube-service.expose>
 		<jkube.generator.name>${docker.user}/csv:1.0</jkube.generator.name>
-	<!--
+
 		<jkube.generator.name>${docker.user}/random-generator:${project.version}</jkube.generator.name>
-	ß-->
+		<!--
+       <jkube.generator.name>${docker.user}/random-generator:${project.version}</jkube.generator.name>
+         -->
 	</properties>
 	<dependencies>
 		<dependency>

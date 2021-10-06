@@ -7,11 +7,11 @@ import java.net.UnknownHostException;
 
 @RestController
 public class CsvEndpoint {
-    @GetMapping(value = "/helloCSV", produces = "application/json")
+    @GetMapping(value ="/helloPT", produces = "application/json")
     public DummyResponse hello(){
         String podName = "";
         int cores = 0;
-        try {
+        try{
             cores = Runtime.getRuntime().availableProcessors();
             podName = java.net.InetAddress.getLocalHost().toString();
         }catch (UnknownHostException e) {
