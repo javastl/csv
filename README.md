@@ -15,5 +15,6 @@ Run prior to jkube build
 run
 ./mvnw package k8s:build  k8s:resource k8s:apply k8s:deploy 
 
-To remove deployment 
+To remove deployment
+
 kubectl delete namespace csv 
