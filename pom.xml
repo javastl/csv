@@ -1,67 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
-	<groupId>com.javastl</groupId>
-	<artifactId>Csv</artifactId>
-	<version>1.0</version>
-	<name>Csv</name>
-	<description>Demo project for Spring Boot</description>
-	<properties>
-		<jkube.createExternalUrls>true</jkube.createExternalUrls>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>11</java.version>
-		<docker.user>bwiwebsphere</docker.user>
-		<jkube.version>1.4.0</jkube.version>
-		<jkube.namespace>csv</jkube.namespace>
-		<jkube.docker.registry>docker.io</jkube.docker.registry>
-		<jkube.replicas>3</jkube.replicas>
-		<jkube.enricher.jkube-service.type>LoadBalancer</jkube.enricher.jkube-service.type>
-		<jkube.enricher.jkube-service.expose>true</jkube.enricher.jkube-service.expose>
-		<jkube.generator.name>${docker.user}/csv:1.0</jkube.generator.name>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.5.4</version>
+    <relativePath/> <!-- lookup parent from repository -->
+</parent>
+<groupId>com.javastl</groupId>
+<artifactId>csv-app</artifactId>
+<version>1.1</version>
+<name>csv</name>
+<description>Demo project for Spring Boot</description>
+<properties>
 
-		<jkube.generator.name>${docker.user}/random-generator:${project.version}</jkube.generator.name>
-		<!--
-       <jkube.generator.name>${docker.user}/random-generator:${project.version}</jkube.generator.name>
-         -->
-	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <java.version>11</java.version>
+    <docker.user>bwiwebsphere</docker.user>
+    <!--
+    <jkube.version>1.4.0</jkube.version>
+    -->
+    <jkube.version>1.5.1</jkube.version>
+    <jkube.namespace>csv</jkube.namespace>
+    <jkube.docker.registry>docker.io</jkube.docker.registry>
+    <jkube.generator.webapp.user>1000:1000:1000</jkube.generator.webapp.user>
+    <jkube.createExternalUrls>true</jkube.createExternalUrls>
+    <jkube.generator.webapp.path>/csv</jkube.generator.webapp.path>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
+    <jkube.replicas>3</jkube.replicas>
+    <jkube.enricher.jkube-service.type>NodePort</jkube.enricher.jkube-service.type>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.jkube</groupId>
-				<artifactId>kubernetes-maven-plugin</artifactId>
-				<version>1.4.0</version>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.jkube</groupId>
-				<artifactId>openshift-maven-plugin</artifactId>
-				<version>1.4.0</version>
-			</plugin>
-		</plugins>
-	</build>
+    <!--
+    <jkube.enricher.jkube-service.type>ClusterIP</jkube.enricher.jkube-service.type>
+    -->
+    <jkube.enricher.jkube-service.expose>true</jkube.enricher.jkube-service.expose>
+    <!--
+    <jkube.generator.name>${docker.user}/csv:1.0</jkube.generator.name>
+    -->
+    <jkube.generator.name>${docker.user}/random-generator:${project.version}</jkube.generator.name>
+    <!--
+   <jkube.generator.name>${docker.user}/random-generator:${project.version}</jkube.generator.name>
+     -->
+</properties>
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+    </dependency>
+    <!--
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+    -->
+    <dependency>
+        <groupId>javainetlocator</groupId>
+        <artifactId>inetaddresslocator</artifactId>
+        <version>2.18</version>
+    </dependency>
+
+</dependencies>
+
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+        <plugin>
+            <groupId>org.eclipse.jkube</groupId>
+            <artifactId>kubernetes-maven-plugin</artifactId>
+            <version>1.4.0</version>
+        </plugin>
+        <plugin>
+            <groupId>org.eclipse.jkube</groupId>
+            <artifactId>openshift-maven-plugin</artifactId>
+            <version>1.4.0</version>
+        </plugin>
+    </plugins>
+</build>
 
 </project>
