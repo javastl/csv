@@ -8,7 +8,8 @@ Java version 11
  
 
 kubectl should be valid for v1.21
-Run prior to jkube build </td>
+Run prior to jkube build
+
   kubectl create  namespace csv 
   
 run
