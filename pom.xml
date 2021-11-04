@@ -1,92 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-<modelVersion>4.0.0</modelVersion>
-<parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.5.4</version>
-    <relativePath/> <!-- lookup parent from repository -->
-</parent>
-<groupId>com.javastl</groupId>
-<artifactId>csv-app</artifactId>
-<version>1.1</version>
-<name>csv</name>
-<description>Demo project for Spring Boot</description>
-<properties>
-
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>11</java.version>
-    <docker.user>bwiwebsphere</docker.user>
-    <!--
-    <jkube.version>1.4.0</jkube.version>
-    -->
-    <jkube.version>1.5.1</jkube.version>
-    <jkube.namespace>csv</jkube.namespace>
-    <jkube.docker.registry>docker.io</jkube.docker.registry>
-    <jkube.generator.webapp.user>1000:1000:1000</jkube.generator.webapp.user>
-    <jkube.createExternalUrls>true</jkube.createExternalUrls>
-    <jkube.generator.webapp.path>/csv</jkube.generator.webapp.path>
-
-    <jkube.replicas>3</jkube.replicas>
-    <jkube.enricher.jkube-service.type>NodePort</jkube.enricher.jkube-service.type>
-
-    <!--
-    <jkube.enricher.jkube-service.type>ClusterIP</jkube.enricher.jkube-service.type>
-    -->
-    <jkube.enricher.jkube-service.expose>true</jkube.enricher.jkube-service.expose>
-    <!--
-    <jkube.generator.name>${docker.user}/csv:1.0</jkube.generator.name>
-    -->
-    <jkube.generator.name>${docker.user}/random-generator:${project.version}</jkube.generator.name>
-    <!--
-   <jkube.generator.name>${docker.user}/random-generator:${project.version}</jkube.generator.name>
-     -->
-</properties>
-<dependencies>
-    <dependency>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.javastl</groupId>
+    <artifactId>csv-app</artifactId>
+    <version>1.1</version>
+    <name>csv</name>
 
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-test</artifactId>
-        <scope>test</scope>
-    </dependency>
-    <!--
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-security</artifactId>
-    </dependency>
-    -->
-    <dependency>
-        <groupId>javainetlocator</groupId>
-        <artifactId>inetaddresslocator</artifactId>
-        <version>2.18</version>
-    </dependency>
+    <description>Demo project for Spring Boot</description>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
+        <docker.user>bwiwebsphere</docker.user>
+        <jkube.version>1.5.1</jkube.version>
+        <jkube.namespace>csv</jkube.namespace>
+        <jkube.docker.registry>docker.io</jkube.docker.registry>
 
-</dependencies>
+        <jkube.createExternalUrls>true</jkube.createExternalUrls>
 
+        <jkube.enricher.jkube-service.type>NodePort</jkube.enricher.jkube-service.type>
+        <jkube.replicas>3</jkube.replicas>
+        <!--
+        <jkube.enricher.jkube-service.type>ClusterIP</jkube.enricher.jkube-service.type>
+        -->
+        <jkube.enricher.jkube-service.expose>true</jkube.enricher.jkube-service.expose>
 
-<build>
-    <plugins>
-        <plugin>
+        <jkube.generator.name>${docker.user}/random-generator:${project.version}</jkube.generator.name>
+
+    </properties>
+    <dependencies>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-maven-plugin</artifactId>
-        </plugin>
-        <plugin>
-            <groupId>org.eclipse.jkube</groupId>
-            <artifactId>kubernetes-maven-plugin</artifactId>
-            <version>1.4.0</version>
-        </plugin>
-        <plugin>
-            <groupId>org.eclipse.jkube</groupId>
-            <artifactId>openshift-maven-plugin</artifactId>
-            <version>1.4.0</version>
-        </plugin>
-    </plugins>
-</build>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>javainetlocator</groupId>
+            <artifactId>inetaddresslocator</artifactId>
+            <version>2.18</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.eclipse.jkube</groupId>
+                <artifactId>kubernetes-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>${docker.user}/random-generator:${project.version}</name>
+                            <build>
+                                <from>openjdk:11</from>
+                                <env>
+                                    <JAVA_APP_DIR>/deployments</JAVA_APP_DIR>
+                                </env>
+                                <!--service port config -->
+                                <ports>
+                                    <port>8080</port>
+                                    <port>9779</port>
+                                </ports>
+
+                                <runCmds>
+                                    <run>groupadd -r appUser</run>
+                                    <run>useradd -r -g appUser appUser</run>
+                                </runCmds>
+                                <user>appUser</user>
+                                <workdir>/home/appUser</workdir>
+                                <cmd>java -jar /deployments/${project.artifactId}-${project.version}.jar</cmd>
+                                <assembly>
+                                    <mode>dir</mode>
+                                    <targetDir>/deployments</targetDir>
+                                    <layers>
+                                        <layer>
+                                            <id>standard-assembly</id>
+                                            <files>
+                                                <file>
+                                                    <source>target/${project.artifactId}-${project.version}.jar</source>
+                                                    <outputDirectory>.</outputDirectory>
+                                                </file>
+                                            </files>
+                                        </layer>
+                                    </layers>
+                                </assembly>
+                            </build>
+                        </image>
+                    </images>
+                    <resources>
+                        <ingress>
+                            <ingressRules>
+                                <ingressRule>
+                                    <paths>
+                                        <path>
+                                            <pathType>Prefix</pathType>
+                                            <path>/hello</path>
+                                            <serviceName>csv-app</serviceName>
+                                            <servicePort>8080</servicePort>
+                                        </path>
+                                    </paths>
+                                </ingressRule>
+                            </ingressRules>
+                        </ingress>
+                    </resources>
+                    <enricher>
+                        <config>
+                            <jkube-service-discovery>
+                                <scheme>https</scheme>
+                                <path>/hello</path>
+                                <descriptionPath>/hello</descriptionPath>
+                            </jkube-service-discovery>
+                        </config>
+                    </enricher>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.eclipse.jkube</groupId>
+                <artifactId>openshift-maven-plugin</artifactId>
+                <version>1.4.0</version>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
