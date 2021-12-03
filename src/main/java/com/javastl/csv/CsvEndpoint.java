@@ -11,12 +11,14 @@ public class CsvEndpoint {
     public DummyResponse hello(){
         String podName = "";
         int cores = 0;
+        String os = "";
         try{
             cores = Runtime.getRuntime().availableProcessors();
             podName = java.net.InetAddress.getLocalHost().toString();
+            os = System.getProperty("os.name");
         }catch (UnknownHostException e) {
             e.printStackTrace();
         }
-        return new DummyResponse("Hello with Cores is: " + cores + " Running pod is: " + podName);
+        return new DummyResponse("Hello with Cores is: " + cores + " Running pod is: " + podName + " OS detected: " + os);
     }
 }
