@@ -19,6 +19,6 @@ public class CsvEndpoint {
         }catch (UnknownHostException e) {
             e.printStackTrace();
         }
-        return new DummyResponse("Hello with Cores is: " + cores + " Running pod is: " + podName + " OS detected: " + os);
+        return new DummyResponse("CSV has this many Cores available: " + cores + " Running pod is: " + podName + " OS detected: " + os);
     }
 }
